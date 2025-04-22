@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Webpage</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .navbar {
+        overflow: hidden;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #BE3144;
+        height: 72px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.4vw; 
+        padding: 20px;
+    }
+
+    .navbar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        list-style-type: none;
+        position: relative;
+    }
+
+    .navbar a:hover {
+        background-color: rgb(81, 81, 230);
+    }
+
+    .ten {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        background-image: linear-gradient(330deg, #3a3d40 0%, #181719 100%);
+    }
+
+    .ten h1 {
+        color: white;
+        font-size: 3.5vw;
+    }
+
+    .loader {
+        position: relative;
+        overflow: hidden;
+        border-right: 3px solid;
+        width: 0px;
+        animation: typewriter 2s steps(10) infinite alternate, blink 0.5s steps(10) infinite;
+    }
+
+    .loader-text {
+        display: flex;
+        font-size: 1.3vw;
+        font-style: italic;
+        font-weight: bold;
+        width: 230px;
+        height: 30px;
+        background: linear-gradient(to right, #159957, #155799);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes typewriter {
+        0% {
+            width: 0px;
+        }
+        100% {
+            width: 230px;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            border-right-color: rgba(255, 255, 255, .75);
+        }
+        100% {
+            border-right-color: transparent;
+        }
+    }
+
+    .skibidi {
+        background-color: #45567D;
+        width: 100%;
+        padding: 10rem 6rem; 
+    }
+
+    .skibidi h2 {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        font-size: 2.0vw; 
+        border-bottom: 1pt solid white;
+        height: 55px;
+        width: 35%;
+        margin: 0 auto 50px; 
+    }
+
+    .skibidi-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 5rem;
+        max-width: 1280px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .skibidi img {
+        height: 320px; 
+        width: 100%;
+        max-width: 390px;
+        
+    }
+
+    .skibidi a{
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        background-color: #3a3d40;
+        width: 400px;
+        margin: 0 auto 0;
+        border-radius: 4px;
+        box-shadow: 2px 2px 2px black;
+    }
+
+    .skibidi p {
+        display: block;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding-top: 5px;
+    }
+
+
+
+    .button {
+        position: relative;
+        top: 30px;
+        left: 45%;
+        margin-left: -85px;        
+        border-radius: 4px;
+        background-color: #3a3d40;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+        padding: 20px;
+        width: 170px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        box-shadow: 2px 2px 2px black;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    @media (max-width: 768px) {
+        .navbar a {
+            font-size: 4vw;
+        }
+
+        .ten h1 {
+            font-size: 8vw;
+        }
+
+        .loader-text {
+            font-size: 3vw; 
+
+        .skibidi h2 {
+            font-size: 5vw;
+        }
+    }
+    }
+    @media (max-width: 480px) {
+        .navbar a {
+            font-size: 5vw; 
+        }
+
+        .ten h1 {
+            font-size: 10vw;
+        }
+
+        .loader-text {
+            font-size: 4vw;
+        }
+
+        .skibidi h2 {
+            font-size: 6vw;
+        }
+    }
+
+    .skibidi-container .hieu-ung {
+        color: #3a3d40;
+        transition: color 0.3s ease-out;
+    }
+
+    .skibidi-container a:hover .hieu-ung {
+        color: orange;
+    }
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: linear-gradient(330deg, #3a3d40 0%, #181719 100%);
+        color: white;
+        width: 100%;
+        height: 90vh;
+        align-items: center;
+    }
+    
+    .header-contact h2 {
+        font-size: 3vw;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .header-contact p {
+        font-size: 1.2vw;
+        font-style: italic;
+        text-align: center;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem;
+        width: 100%;
+        height: 10vh;
+        background-color: #155799;
+        border-top: 0.3rem solid #BE3144;
+    }
+
+    .contact-link {
+        padding: 2rem;
+        text-shadow: 0px 3px 6px rgba(248,248,248,0.6);
+    }
+
+    .contact-link a{
+        text-decoration: none;
+        padding: 30px 40px 10px 40px;
+        color: white;
+        font-size: 1.5vw;
+        transition: scale 0.3s ease-in;
+    }
+
+    .contact-link a:hover {
+        scale: 1.3;
+    }
+
+    .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+    }
+
+    .hover-underline-animation::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #BE3144;
+        transition: transform 0.25s ease-out;
+    }
+
+    .hover-underline-animation:hover::after {
+        transform: scaleX(1);
+    }
+
+    .hover-underline-animation.center::after {
+        transform-origin: bottom center;
+    }
+
+    .hover-underline-animation.center:hover::after {
+        transform-origin: bottom center;
+    }
+
+    footer p {
+        color: white;
+        font-size: 1vw;
+    }
+
+    footer a{
+        font-size: 1vw;
+        text-decoration: none;
+        color: white;
+    }
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <section class="ten">
+                <h1>hello!,i'm xuanan</h1>
+                <div class="loader">
+                    <p class="loader-text">a mmo maker...</p>
+                </div>
+            </section>
+            
+            <section class="skibidi">
+                <h2>Below are some of my projects.</h2>
+                <div class="skibidi-container">
+                   
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>Tribute Page<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/random-quote-machine.png" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>Random Quote Machine<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/calc.png" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>JavaScript Calcualtor<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+                
+                    
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/map.jpg" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>Map Data Across the Globe<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/wiki.png" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>Wikipedia Viewer<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+
+                    <a href="https://youtu.be/zgaCZOQCpp8?si=oLbzMT9kYhj_i7Mt" target="_blank">
+                        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tic-tac-toe.png" alt="skibidi1">
+                        <p><span class="hieu-ung">&lt;</span>Tic-Tac-Toe Game<span class="hieu-ung">/&gt;</span></p>
+                    </a>
+
+                </div>
+                <button class="button"><span class="show">Show all</span></button>
+            </section>
+
+            <section id="contact">
+                <div class="header-contact">
+                    <h2>Let's work together...</h2>
+                    <p>How do you take your coffee?</p>
+                </div>
+
+                <div class="contact-link">
+                    <a class="hover-underline-animation center" href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a class="hover-underline-animation center" href="#"><i class="fa-brands fa-github"></i> Github</a>
+                    <a class="hover-underline-animation center" href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a class="hover-underline-animation center" href="#"><i class="fa-solid fa-square-envelope"></i> Send a mail</a>
+                    <a class="hover-underline-animation center" href="#"><i class="fa-solid fa-mobile-screen-button"></i> Call me</a>
+                </div>
+
+            </section>
+
+            <section class="footer-container">
+                <footer>
+                    <p>**This is just a fake portfolio. All the projects and contact details given are not real.</p>
+                    <a href="#" target="_blank">&#169; Created for CodeClean <i class="fas fa-terminal"></i></a>
+                </footer>
+            </section>
+    </div>
+
+</body>
+</html>
